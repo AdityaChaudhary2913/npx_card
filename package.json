@@ -15,10 +15,13 @@
   },
   "dependencies": {
     "boxen": "^4.2.0",
-    "chalk": "^4.1.0",
+    "chalk": "^4.1.2",
+    "chalk-animation": "^2.0.3",
     "clear": "^0.1.0",
-    "inquirer": "^7.3.2",
-    "open": "^7.0.4"
+    "gradient-string": "^3.0.0",
+    "inquirer": "^7.3.3",
+    "open": "^7.4.2",
+    "terminal-link": "^3.0.0"
   },
   "keywords": [
     "card",
