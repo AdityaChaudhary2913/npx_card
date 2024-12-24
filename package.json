@@ -1,6 +1,6 @@
 {
   "name": "aditya13",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "card.js",
   "type": "module",
   "bin": {
