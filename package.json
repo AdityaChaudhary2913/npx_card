@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anmol098/npx_card.git"
+    "url": "git+https://github.com/AdityaChaudhary2913/npx_card"
   },
   "scripts": {
     "test": "node card.js",
@@ -33,5 +33,5 @@
   ],
   "author": "Aditya Chuadhary",
   "license": "ISC",
-  "description": ""
+  "description": "A personal card for Aditya Chaudhary"
 }
