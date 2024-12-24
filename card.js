@@ -1,15 +1,12 @@
-#!/usr/bin/env node
+import boxen from "boxen";
+import chalk from "chalk";
+import gradient from "gradient-string";
+import inquirer from "inquirer";
+import clear from "clear";
+import open from "open";
+import chalkAnimation from "chalk-animation";
+import terminalLink from "terminal-link";
 
-"use strict";
-
-const boxen = require("boxen");
-const chalk = require("chalk");
-const gradient = require("gradient-string");
-const inquirer = require("inquirer");
-const clear = require("clear");
-const open = require("open");
-const terminalLink = require("terminal-link");
-const chalkAnimation = require("chalk-animation");
 clear();
 
 const prompt = inquirer.createPromptModule();
@@ -47,7 +44,7 @@ const questions = [
 ];
 
 const data = {
-	name: gradient.rainbow("             Aditya Chaudhary"),
+	name: gradient.rainbow("Aditya Chaudhary"),
 	work: `${chalk.white("Student at")} ${chalk
 		.hex("#2b82b2")
 		.bold("LNMIIT, Jaipur")}`,
@@ -57,8 +54,15 @@ const data = {
 		"https://www.linkedin.com/in/adityachaudhary1306"
 	),
 	web: terminalLink("Web", "https://portfolio-aditya-chi.vercel.app/"),
-	labelWork: chalk.white.bold("       Profession:"),
-	labelCard: chalk.white.bold("       Card:"),
+	kaggle: terminalLink("Kaggle", "https://www.kaggle.com/adityachaudhary1306"),
+	medium: terminalLink("Medium", "https://www.medium.com/@adityachaudhary1306"),
+	twitter: terminalLink("Twitter", "https://www.twitter.com/13Aditya06"),
+	instagram: terminalLink(
+		"Instagram",
+		"https://www.instagram.com/_adityathejaat_"
+	),
+	labelWork: chalk.white.bold("Profession:"),
+	labelCard: chalk.white.bold("Card:"),
 	npx: chalk.red("npx") + " " + chalk.white("aditya"),
 };
 
@@ -70,7 +74,11 @@ const me = boxen(
 		``,
 		`GitHub: ${data.github}`,
 		`LinkedIn: ${data.linkedin}`,
-		`Web: ${data.web}`,
+		`Porfolio: ${data.web}`,
+		`Kaggle: ${data.kaggle}`,
+		`Medium: ${data.medium}`,
+		`Twitter: ${data.twitter}`,
+		`Instagram: ${data.instagram}`,
 		``,
 		`${data.labelCard}  ${data.npx}`,
 		``,
@@ -88,9 +96,9 @@ const me = boxen(
 	}
 );
 
-const rainbow = chalkAnimation.rainbow('Loading... Press "CTRL+C" to stop.\n'); // Animation starts
+const rainbow = chalkAnimation.rainbow('Loading... Press "CTRL+C" to stop.\n');
 setTimeout(() => {
-	rainbow.stop(); // Stop the animation
+	rainbow.stop();
 	console.log(me);
 	const tip = [
 		`Tip: Try ${chalk.cyanBright.bold("cmd/ctrl + click")} on the links above`,
