@@ -1,9 +1,9 @@
 {
-  "name": "aditya",
+  "name": "aditya13",
   "version": "1.0.4",
   "main": "card.js",
   "bin": {
-    "aditya": "./card.js"
+    "aditya13": "./card.js"
   },
   "repository": {
     "type": "git",
