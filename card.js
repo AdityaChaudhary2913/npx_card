@@ -1,103 +1,65 @@
 #!/usr/bin/env node
 
-'use strict'
+"use strict";
 
 const boxen = require("boxen");
 const chalk = require("chalk");
+const gradient = require("gradient-string");
 const inquirer = require("inquirer");
 const clear = require("clear");
 const open = require("open");
-const fs = require('fs');
-const request = require('request');
-const path = require('path');
-const ora = require('ora');
-const cliSpinners = require('cli-spinners');
+const terminalLink = require("terminal-link");
+const chalkAnimation = require("chalk-animation");
 clear();
 
 const prompt = inquirer.createPromptModule();
 
 const questions = [
-    {
-        type: "list",
-        name: "action",
-        message: "What you want to do?",
-        choices: [
-            {
-                name: `Send me an ${chalk.green.bold("email")}?`,
-                value: () => {
-                    open("mailto:adityachaudhary1306@gmail.com");
-                    console.log("\nDone, see you soon at inbox.\n");
-                }
-            },
-            {
-                name: `Download my ${chalk.magentaBright.bold("Resume")}?`,
-                value: () => {
-                    // cliSpinners.dots;
-                    const loader = ora({
-                        text: ' Downloading Resume',
-                        spinner: cliSpinners.material,
-                    }).start();
-                    let pipe = request(
-											"https://docs.google.com/document/d/1EF3p-zqUvzNIXaMBhsIUsFO7usqkst5z8dRGAoWAv1Q/edit?tab=t.0"
-										).pipe(fs.createWriteStream("./AdityaChaudhary_CV.pdf"));
-                    pipe.on("finish", function () {
-                        let downloadPath = path.join(
-													process.cwd(),
-													"AdityaChaudhary_CV.pdf"
-												);
-                        console.log(`\nResume Downloaded at ${downloadPath} \n`);
-                        open(downloadPath)
-                        loader.stop();
-                    });
-                }
-            },
-            // {
-            //     name: `Schedule a ${chalk.redBright.bold("Meeting")}?`,
-            //     value: () => {
-            //         open('https://calendly.com/anmol098/30min');
-            //         console.log("\n See you at the meeting \n");
-            //     }
-            // },
-            {
-                name: "Just quit.",
-                value: () => {
-                    console.log("Hasta la vista.\n");
-                }
-            }
-        ]
-    }
+	{
+		type: "list",
+		name: "action",
+		message: "What do you want to do?",
+		choices: [
+			{
+				name: `Send me an ${chalk.green.bold("email")}?`,
+				value: () => {
+					open("mailto:adityachaudhary1306@gmail.com");
+					console.log("\nDone, see you soon at inbox.\n");
+				},
+			},
+			{
+				name: `View my ${chalk.magentaBright.bold("Resume")} online?`,
+				value: () => {
+					open(
+						"https://docs.google.com/document/d/e/2PACX-1vQG9F0Bz7Bzv1jpB7Tv2WJUuE7F_vZ6QUS5-xMeqB33-vcy9qH-KVFo3oz1waw9X4lc2AtliTSBScb0/pub"
+					);
+					console.log("\nResume opened in your browser.\n");
+				},
+			},
+			{
+				name: "Just quit.",
+				value: () => {
+					console.log("Hasta la vista.\n");
+				},
+			},
+		],
+	},
 ];
 
 const data = {
-	name: chalk.bold.green("             Aditya Chaudhary"),
-	handle: chalk.white("@AdityaChaudhary2913"),
+	name: gradient.rainbow("             Aditya Chaudhary"),
 	work: `${chalk.white("Student at")} ${chalk
 		.hex("#2b82b2")
 		.bold("LNMIIT, Jaipur")}`,
-	twitter: chalk.gray("https://www.twitter.com/") + chalk.cyan("13Aditya06"),
-	github:
-		chalk.gray("https://www.github.com/") + chalk.green("AdityaChaudhary2913"),
-	kaggle:
-		chalk.gray("https://www.kaggle.com/") + chalk.green("adityachaudhary1306"),
-	medium:
-		chalk.gray("https://www.medium.com/") + chalk.green("@adityachaudhary1306"),
-	instagram:
-		chalk.gray("https://www.instagram.com/") + chalk.magenta("_adityathejaat_"),
-	linkedin:
-		chalk.gray("https://www.linkedin.com/in/") +
-		chalk.blue("adityachaudhary1306"),
-	web: chalk.cyan("https://portfolio-aditya-chi.vercel.app/"),
-	npx: chalk.red("npx") + " " + chalk.white("aditya"),
-
+	github: terminalLink("GitHub", "https://www.github.com/AdityaChaudhary2913"),
+	linkedin: terminalLink(
+		"LinkedIn",
+		"https://www.linkedin.com/in/adityachaudhary1306"
+	),
+	web: terminalLink("Web", "https://portfolio-aditya-chi.vercel.app/"),
 	labelWork: chalk.white.bold("       Profession:"),
-	labelGitHub: chalk.white.bold("     GitHub:"),
-	labelLinkedIn: chalk.white.bold("   LinkedIn:"),
-	labelKaggle: chalk.white.bold("     Kaggle:"),
-	labelMedium: chalk.white.bold("     Medium:"),
-	labelTwitter: chalk.white.bold("    Twitter:"),
-	labelInstagram: chalk.white.bold("  Instagram:"),
-	labelWeb: chalk.white.bold("        Web:"),
 	labelCard: chalk.white.bold("       Card:"),
+	npx: chalk.red("npx") + " " + chalk.white("aditya"),
 };
 
 const me = boxen(
@@ -106,13 +68,9 @@ const me = boxen(
 		``,
 		`${data.labelWork}  ${data.work}`,
 		``,
-		`${data.labelGitHub}  ${data.github}`,
-		`${data.labelLinkedIn}  ${data.linkedin}`,
-		`${data.labelKaggle}  ${data.kaggle}`,
-		`${data.labelMedium}  ${data.medium}`,
-		`${data.labelTwitter}  ${data.twitter}`,
-		`${data.labelInstagram}  ${data.instagram}`,
-		`${data.labelWeb}  ${data.web}`,
+		`GitHub: ${data.github}`,
+		`LinkedIn: ${data.linkedin}`,
+		`Web: ${data.web}`,
 		``,
 		`${data.labelCard}  ${data.npx}`,
 		``,
@@ -125,18 +83,20 @@ const me = boxen(
 		margin: 1,
 		float: "center",
 		padding: 1,
-		borderStyle: "single",
+		borderStyle: "round",
 		borderColor: "green",
 	}
 );
 
-console.log(me);
-const tip = [
-    `Tip: Try ${chalk.cyanBright.bold(
-        "cmd/ctrl + click"
-    )} on the links above`,
-    '',
-].join("\n");
-console.log(tip);
+const rainbow = chalkAnimation.rainbow('Loading... Press "CTRL+C" to stop.\n'); // Animation starts
+setTimeout(() => {
+	rainbow.stop(); // Stop the animation
+	console.log(me);
+	const tip = [
+		`Tip: Try ${chalk.cyanBright.bold("cmd/ctrl + click")} on the links above`,
+		"",
+	].join("\n");
+	console.log(tip);
 
-prompt(questions).then(answer => answer.action());
+	prompt(questions).then((answer) => answer.action());
+}, 2000);
