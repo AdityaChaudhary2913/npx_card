@@ -71,56 +71,63 @@ const questions = [
 const data = {
 	name: chalk.bold.green("             Aditya Chaudhary"),
 	handle: chalk.white("@AdityaChaudhary2913"),
-	work: `${chalk.white("Lead Software Engineer at")} ${chalk
+	work: `${chalk.white("Student at")} ${chalk
 		.hex("#2b82b2")
-		.bold("FootLoose Labs")}`,
-	twitter: chalk.gray("https://twitter.com/") + chalk.cyan("13Aditya06"),
+		.bold("LNMIIT, Jaipur")}`,
+	twitter: chalk.gray("https://www.twitter.com/") + chalk.cyan("13Aditya06"),
 	github:
-		chalk.gray("https://github.com/") + chalk.green("AdityaChaudhary2913"),
+		chalk.gray("https://www.github.com/") + chalk.green("AdityaChaudhary2913"),
+	kaggle:
+		chalk.gray("https://www.kaggle.com/") + chalk.green("adityachaudhary1306"),
+	medium:
+		chalk.gray("https://www.medium.com/") + chalk.green("@adityachaudhary1306"),
+	instagram:
+		chalk.gray("https://www.instagram.com/") + chalk.magenta("_adityathejaat_"),
 	linkedin:
-		chalk.gray("https://linkedin.com/in/") + chalk.blue("adityachaudhary1306"),
+		chalk.gray("https://www.linkedin.com/in/") +
+		chalk.blue("adityachaudhary1306"),
 	web: chalk.cyan("https://portfolio-aditya-chi.vercel.app/"),
 	npx: chalk.red("npx") + " " + chalk.white("aditya"),
 
-	labelWork: chalk.white.bold("       Work:"),
-	labelTwitter: chalk.white.bold("    Twitter:"),
+	labelWork: chalk.white.bold("       Profession:"),
 	labelGitHub: chalk.white.bold("     GitHub:"),
 	labelLinkedIn: chalk.white.bold("   LinkedIn:"),
+	labelKaggle: chalk.white.bold("     Kaggle:"),
+	labelMedium: chalk.white.bold("     Medium:"),
+	labelTwitter: chalk.white.bold("    Twitter:"),
+	labelInstagram: chalk.white.bold("  Instagram:"),
 	labelWeb: chalk.white.bold("        Web:"),
 	labelCard: chalk.white.bold("       Card:"),
 };
 
 const me = boxen(
-    [
-        `${data.name}`,
-        ``,
-        `${data.labelWork}  ${data.work}`,
-        ``,
-        `${data.labelTwitter}  ${data.twitter}`,
-        `${data.labelGitHub}  ${data.github}`,
-        `${data.labelLinkedIn}  ${data.linkedin}`,
-        `${data.labelWeb}  ${data.web}`,
-        ``,
-        `${data.labelCard}  ${data.npx}`,
-        ``,
-        `${chalk.italic(
-            "I am currently looking for new opportunities,"
-        )}`,
-        `${chalk.italic("my inbox is always open. Whether you have a")}`,
-        `${chalk.italic(
-            "question or just want to say hi, I will try "
-        )}`,
-        `${chalk.italic(
-            "my best to get back to you!"
-        )}`
-    ].join("\n"),
-    {
-        margin: 1,
-        float: 'center',
-        padding: 1,
-        borderStyle: "single",
-        borderColor: "green"
-    }
+	[
+		`${data.name}`,
+		``,
+		`${data.labelWork}  ${data.work}`,
+		``,
+		`${data.labelGitHub}  ${data.github}`,
+		`${data.labelLinkedIn}  ${data.linkedin}`,
+		`${data.labelKaggle}  ${data.kaggle}`,
+		`${data.labelMedium}  ${data.medium}`,
+		`${data.labelTwitter}  ${data.twitter}`,
+		`${data.labelInstagram}  ${data.instagram}`,
+		`${data.labelWeb}  ${data.web}`,
+		``,
+		`${data.labelCard}  ${data.npx}`,
+		``,
+		`${chalk.italic("I am currently looking for new opportunities,")}`,
+		`${chalk.italic("my inbox is always open. Whether you have a")}`,
+		`${chalk.italic("question or just want to say hi, I will try ")}`,
+		`${chalk.italic("my best to get back to you!")}`,
+	].join("\n"),
+	{
+		margin: 1,
+		float: "center",
+		padding: 1,
+		borderStyle: "single",
+		borderColor: "green",
+	}
 );
 
 console.log(me);
