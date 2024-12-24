@@ -1,6 +1,6 @@
 {
   "name": "aditya13",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "card.js",
   "bin": {
     "aditya13": "./card.js"
