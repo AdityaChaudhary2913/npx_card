@@ -65,7 +65,7 @@ const data = {
 	),
 	labelWork: chalk.white.bold("Profession:"),
 	labelCard: chalk.white.bold("Card:"),
-	npx: chalk.red("npx") + " " + chalk.white("aditya"),
+	npx: chalk.red("npx") + " " + chalk.white("aditya13"),
 };
 
 const me = boxen(
@@ -76,7 +76,7 @@ const me = boxen(
 		``,
 		`GitHub: ${data.github}`,
 		`LinkedIn: ${data.linkedin}`,
-		`Porfolio: ${data.web}`,
+		`Portfolio: ${data.web}`,
 		`Kaggle: ${data.kaggle}`,
 		`Medium: ${data.medium}`,
 		`Twitter: ${data.twitter}`,
