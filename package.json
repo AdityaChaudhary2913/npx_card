@@ -2,6 +2,7 @@
   "name": "aditya13",
   "version": "1.0.7",
   "main": "card.js",
+  "type": "module",
   "bin": {
     "aditya13": "./card.js"
   },
